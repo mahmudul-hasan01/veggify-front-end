@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { IoMdCloseCircle } from "react-icons/io";
 
 const SmallScreen = () => {
 
@@ -43,21 +44,21 @@ const SmallScreen = () => {
             <div ref={dropDownMenuRef} onClick={() => setDropDownState(!dropDownState)} className="relative flex transition-transform md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cursor-pointer" > <line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /> </svg>
                 {dropDownState && (
-                    <ul className=" z-10  gap-2  bg-[#393E46]  absolute right-0 top-11 flex w-[200px] flex-col  rounded-lg   text-base ">
-                        <li className="cursor-pointer  px-6 py-2 text-white rounded-t-lg hover:bg-sky-600 ">
-                            <Link to={'/'}>Home</Link>
-                        </li>
-                        {/* <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-600 ">
-              <Link to={'/'}>About</Link>
-            </li> */}
-                        <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-600 ">
-                            <Link to={'/appointment'}>Appointment</Link>
-                        </li>
-                        <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-600 ">
-                            <Link to={'/login'}>Login</Link>
-                        </li>
+                    <div>
+                        <ul className=" z-10  gap-2  bg-[#393E46]  absolute -right-24 top-11 flex w-screen flex-col  rounded-lg   text-base ">
+                            <p className='text-white text-2xl absolute right-2 top-2'><IoMdCloseCircle /></p>
+                            <li className="cursor-pointer  px-6 py-2 text-white rounded-t-lg hover:bg-sky-600 ">
+                                <Link to={'/'}>Home</Link>
+                            </li>
+                            <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-600 ">
+                                <Link to={'/appointment'}>Appointment</Link>
+                            </li>
+                            <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-600 ">
+                                <Link to={'/login'}>Login</Link>
+                            </li>
 
-                    </ul>
+                        </ul>
+                    </div>
                 )}
             </div>
             {/* dropDown */}
