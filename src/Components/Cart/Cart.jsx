@@ -28,7 +28,6 @@ const Cart = ({ item }) => {
             'text': '#ee5151'
         },
     }
-    console.log(item?.category === categoryColors);
 
     return (
             <div className="w-[280px] h-[350px] relative flex flex-col space-y-4 rounded-lg bg-white shadow-lg hover:scale-105 hover:shadow-2xl transition duration-700 cursor-pointer">
