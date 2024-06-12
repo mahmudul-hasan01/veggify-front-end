@@ -4,6 +4,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import axios from 'axios'
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Cart from "../../../Components/Cart/Cart";
 
 const Search = () => {
 
@@ -27,7 +28,7 @@ const Search = () => {
 
 
     return (
-        <div className="px-6 lg:px-12 py-20">
+        <div className="px-6 lg:px-12 py-10">
             <h1 className="text-center text-3xl py-10 font-semibold text-secondary sm:text-6xl sm:leading-relaxed capitalize">Search</h1>
             {/* <div className="bg-white w-4/5 mx-auto p-4 rounded-md border relative flex items-center mb-10">
                 <IoIosSearch className="w-5 h-5 text-neutral-300 mr-2" />
@@ -37,11 +38,13 @@ const Search = () => {
                 <IoIosSearch className="w-5 h-5 text-neutral-300 mr-2" />
                 <input value={query} onChange={handleChange} className="outline-none w-full" name="query" placeholder="Search for a recipe" type="search" />
             </div>
-            {
-                data?.map(item => (
-                    <p key={item._id}>{item?.name}</p>
-                ))
-            }
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {
+                    data?.map(item => (
+                        <Cart key={item._id} item={item} />
+                    ))
+                }
+            </div>
         </div>
     );
 };
