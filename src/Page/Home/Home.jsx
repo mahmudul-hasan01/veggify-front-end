@@ -1,3 +1,4 @@
+import AboutSection from "./AboutSection/AboutSection";
 import Banner from "./Banner/Banner";
 import FeaturedSection from "./FeaturedSection/FeaturedSection";
 import LatestRecipe from "./LatestRecipe/LatestRecipe";
@@ -13,6 +14,7 @@ const Home = () => {
             <FeaturedSection/>
             <LatestRecipe/>
             <NewsLetter/>
+            <AboutSection/>
         </div>
     );
 };
