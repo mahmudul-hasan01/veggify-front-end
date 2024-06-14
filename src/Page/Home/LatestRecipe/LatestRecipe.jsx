@@ -7,7 +7,7 @@ const LatestRecipe = () => {
     const axiosPublic = useAxiosPublic()
 
     const { data } = useQuery({
-        queryKey: ['gadgets'],
+        queryKey: ['all-items'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/api/all-items`)
             return res.data

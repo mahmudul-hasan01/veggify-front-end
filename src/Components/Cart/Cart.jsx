@@ -1,4 +1,5 @@
 import { IoMdTime } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Cart = ({ item }) => {
 
@@ -30,7 +31,7 @@ const Cart = ({ item }) => {
     }
 
     return (
-            <div className="w-[280px] h-[350px] relative flex flex-col space-y-4 rounded-lg bg-white shadow-lg hover:scale-105 hover:shadow-2xl transition duration-700 cursor-pointer">
+            <Link to={`/item/${item?._id}`} className="w-[280px] h-[350px] relative flex flex-col space-y-4 rounded-lg bg-white shadow-lg hover:scale-105 hover:shadow-2xl transition duration-700 cursor-pointer">
                 <img className="w-full flex-none rounded-lg object-cover" src={item?.thumbnail_image} alt="card navigate ui" />
                 <div className="px-4 grow">
                     <h1 className="text-lg font-semibold ">{item?.name}</h1>
@@ -42,7 +43,7 @@ const Cart = ({ item }) => {
                     </div>
                 </div>
                 <p className="px-3 py-2 rounded-md bg-white absolute top-0 right-3">{item?.more?.difficulty}</p>
-            </div>
+            </Link>
     );
 };
 
