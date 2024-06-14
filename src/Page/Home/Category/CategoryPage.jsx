@@ -11,7 +11,7 @@ const CategoryPage = () => {
 
 
     const { data } = useQuery({
-        queryKey: ['gadgets'],
+        queryKey: ['categories'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/api/categories/${category}`)
             return res.data

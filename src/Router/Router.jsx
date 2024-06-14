@@ -8,6 +8,9 @@ import CategoryPage from "../Page/Home/Category/CategoryPage";
 import Search from "../Page/Home/Search/Search";
 import SingleProduct from "../Page/Product/SingleProduct";
 import Recipes from "../Page/Recipes/Recipes";
+import Resources from "../Page/Resources/Resources";
+import About from "../Page/About/About";
+import Contact from "../Page/Contact/Contact";
 
   
 export const router = createBrowserRouter([
@@ -35,6 +38,18 @@ export const router = createBrowserRouter([
         {
             path: '/recipes',
             element: <Recipes />
+        },
+        {
+            path: '/resources',
+            element: <Resources />
+        },
+        {
+            path: '/about',
+            element: <About />
+        },
+        {
+            path: '/contact',
+            element: <Contact />
         },
       ]
     },

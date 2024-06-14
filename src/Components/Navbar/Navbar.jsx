@@ -43,9 +43,9 @@ const Navbar = () => {
 
   return (
     <nav className="flex w-[424px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] items-center z-50 justify-between  px-10 py-5  rounded-b-md">
-      <div className="scale-100 cursor-pointer rounded-2xl px-3 py-2 text-xl font-semibold  transition-all  flex gap-4 items-center">
+      <Link to={'/'} className="scale-100 cursor-pointer rounded-2xl px-3 py-2 text-xl font-semibold  transition-all  flex gap-4 items-center">
         <img className='w-20' src={icon} alt="" />
-      </div>
+      </Link>
       {/* full-screen */}
       <FullScreen />
       {/* small-screen */}
@@ -55,8 +55,11 @@ const Navbar = () => {
         <li className="group flex  cursor-pointer flex-col">
           <Link to={'/login'}>Login</Link><span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
         </li>
+        <li className="group flex  cursor-pointer flex-col">
+          <Link to={'/signUp'}>SingUp</Link><span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
+        </li>
         {/* dropDown */}
-        <div ref={dropDownRef} className="relative mx-auto w-fit text-black">
+        {/* <div ref={dropDownRef} className="relative mx-auto w-fit text-black">
           <button onClick={() => setOpen((prev) => !prev)}>
             <img width={40} height={40} className="size-10 rounded-full bg-slate-500 object-cover duration-500 hover:scale-x-[98%] hover:opacity-80" src={''} alt="avatar drop down navigate ui" />
           </button>
@@ -82,7 +85,7 @@ const Navbar = () => {
               Log Out
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
