@@ -9,8 +9,8 @@ import Subscription from "./Subscription/Subscription";
 
 const Home = () => {
     return (
-        <div className='space-y-20'>
-            <div className="flex flex-col justify-center items-center w-full mt-10">
+        <div className='space-y-10 lg:space-y-20'>
+            <div className="flex flex-col justify-center items-center w-full">
             <Banner/>
             </div>
             <FeaturedSection/>

@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoMdCloseCircle } from "react-icons/io";
+import useAuth from '../../Hooks/useAuth';
 
 const SmallScreen = () => {
 
     const [dropDownState, setDropDownState] = useState(false);
     const dropDownMenuRef = useRef();
+    const { user, logOut } = useAuth()
 
     useEffect(() => {
         const closeDropDown = (e) => {
@@ -45,24 +47,44 @@ const SmallScreen = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cursor-pointer" > <line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /> </svg>
                 {dropDownState && (
                     <div>
-                        <ul className=" z-10  gap-2  bg-[#393E46]  absolute -right-24 top-11 flex w-screen flex-col  rounded-lg   text-base ">
-                            <p className='text-white text-2xl absolute right-2 top-2'><IoMdCloseCircle /></p>
-                            <li className="cursor-pointer  px-6 py-2 text-white rounded-t-lg hover:bg-sky-600 ">
+                        <ul className=" z-10  gap-2 text-center p-16 bg-[#F9F7F3] h-screen absolute -right-10 top-11 flex w-screen flex-col  rounded-lg   text-base ">
+                            <p className='text-2xl absolute right-10 top-2'><IoMdCloseCircle /></p>
+                            <li className="cursor-pointer  px-6 py-2  rounded-t-lg hover:bg-sky-600 ">
                                 <Link to={'/'}>Home</Link>
                             </li>
-                            <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-600 ">
-                                <Link to={'/appointment'}>Appointment</Link>
+                            <li className="cursor-pointer  px-6 py-2  hover:bg-sky-600 ">
+                                <Link to={'/recipes'}>Recipes</Link>
                             </li>
-                            <li className="cursor-pointer  px-6 py-2 text-white hover:bg-sky-600 ">
-                                <Link to={'/login'}>Login</Link>
+                            <li className="cursor-pointer  px-6 py-2  hover:bg-sky-600 ">
+                                <Link to={'/resources'}>Resources</Link>
                             </li>
-
+                            <li className="cursor-pointer  px-6 py-2  hover:bg-sky-600 ">
+                                <Link to={'/about'}>About</Link>
+                            </li>
+                            <li className="cursor-pointer  px-6 py-2  hover:bg-sky-600 ">
+                                <Link to={'/contact'}>Contact</Link>
+                            </li>
+                            {
+                                user ?
+                                    <li onClick={logOut} className="group text-red-600 font-semibold flex px-6 py-2 cursor-pointer flex-col">
+                                        Log Out<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
+                                    </li>
+                                    :
+                                    <div className=''>
+                                        <li className="group flex px-6 py-2 cursor-pointer flex-col">
+                                            <Link to={'/login'}>Login</Link><span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
+                                        </li>
+                                        <li className="group flex px-6 py-2 cursor-pointer flex-col">
+                                            <Link to={'/signUp'}>SignUp</Link><span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
+                                        </li>
+                                    </div>
+                            }
                         </ul>
                     </div>
                 )}
             </div>
             {/* dropDown */}
-            <div ref={dropDownRef} className="relative mx-auto w-fit text-black">
+            {/* <div ref={dropDownRef} className="relative mx-auto w-fit text-black">
                 <button onClick={() => setOpen((prev) => !prev)}>
                     <img width={40} height={40} className="size-10 rounded-full bg-slate-500 object-cover duration-500 hover:scale-x-[98%] hover:opacity-80" src={''} alt="avatar drop down navigate ui" />
                 </button>
@@ -88,7 +110,7 @@ const SmallScreen = () => {
                         Log Out
                     </li>
                 </ul>
-            </div>
+            </div> */}
 
         </div>
     </>

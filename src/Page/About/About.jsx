@@ -49,7 +49,7 @@ const About = () => {
                 </div>
             </section>
 
-            <div className="bg-white rounded-lg shadow-xl container mx-auto px-10 py-32 flex items-center justify-between">
+            <div className="bg-white rounded-lg shadow-xl container mx-auto md:px-10 py-24 flex flex-col md:flex-row items-center justify-between space-y-8">
                     <div className="w-8/12 text-2xl">
                         <FaQuoteLeft className="float-left mr-2" />
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod perspiciatis voluptatem consequatur laudantium non exercitationem fuga quibusdam praesentium ex quisquam?</p>

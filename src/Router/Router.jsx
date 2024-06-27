@@ -11,6 +11,9 @@ import Recipes from "../Page/Recipes/Recipes";
 import Resources from "../Page/Resources/Resources";
 import About from "../Page/About/About";
 import Contact from "../Page/Contact/Contact";
+import Login from "../Components/Login/Login";
+import SignUp from "../Components/SignUp/SignUp";
+import PrivateRoute from "../Components/Private/PrivateRoute";
 
   
 export const router = createBrowserRouter([
@@ -33,7 +36,7 @@ export const router = createBrowserRouter([
         },
         {
             path: '/item/:id',
-            element: <SingleProduct />
+            element: <PrivateRoute> <SingleProduct /> </PrivateRoute>
         },
         {
             path: '/recipes',
@@ -50,6 +53,14 @@ export const router = createBrowserRouter([
         {
             path: '/contact',
             element: <Contact />
+        },
+        {
+            path: '/login',
+            element: <Login />
+        },
+        {
+            path: '/signUp',
+            element: <SignUp />
         },
       ]
     },

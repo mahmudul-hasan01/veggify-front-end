@@ -3,12 +3,14 @@ import icon from '../../../public/logo.svg'
 import { Link } from 'react-router-dom';
 import FullScreen from './FullScreen';
 import SmallScreen from './SmallScreen';
+import useAuth from '../../Hooks/useAuth';
 
 
 const Navbar = () => {
 
   const [dropDownState, setDropDownState] = useState(false);
   const dropDownMenuRef = useRef();
+  const { user, logOut } = useAuth()
 
   useEffect(() => {
     const closeDropDown = (e) => {
@@ -51,13 +53,24 @@ const Navbar = () => {
       {/* small-screen */}
       <SmallScreen />
       {/* login and dashboard */}
-      <div className='lg:flex hidden  gap-10 items-center'>
-        <li className="group flex  cursor-pointer flex-col">
-          <Link to={'/login'}>Login</Link><span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
-        </li>
-        <li className="group flex  cursor-pointer flex-col">
-          <Link to={'/signUp'}>SingUp</Link><span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
-        </li>
+      <div className='hidden md:block'>
+
+        {
+          user ? 
+          <li onClick={logOut} className="group flex text-red-600 font-semibold cursor-pointer flex-col">
+            Log Out<span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
+          </li>
+           :
+            <div className='md:flex hidden gap-10 items-center'>
+              <li className="group flex  cursor-pointer flex-col">
+                <Link to={'/login'}>Login</Link><span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
+              </li>
+              <li className="group flex  cursor-pointer flex-col">
+                <Link to={'/signUp'}>SignUp</Link><span className="mt-[2px] h-[3px]  w-[0px] rounded-full bg-sky-500 transition-all duration-300 group-hover:w-full"></span>
+              </li>
+            </div>
+        }
+
         {/* dropDown */}
         {/* <div ref={dropDownRef} className="relative mx-auto w-fit text-black">
           <button onClick={() => setOpen((prev) => !prev)}>
